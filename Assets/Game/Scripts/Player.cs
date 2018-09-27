@@ -10,12 +10,22 @@ public class Player : MonoBehaviour {
     private float gravity = 9.81f;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         controller = GetComponent<CharacterController>();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
  	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
         CalculateMovement();
 	}
 

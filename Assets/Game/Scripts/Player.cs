@@ -24,10 +24,11 @@ public class Player : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             Ray rayOrigin = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0));
+            RaycastHit hitInfo;
 
-            if (Physics.Raycast(rayOrigin, Mathf.Infinity))
+            if (Physics.Raycast(rayOrigin, out hitInfo))
             {
-                Debug.Log("RayCast Hit Something!");
+                Debug.Log("RayCast Hit " + hitInfo.transform.name + "!");
             }
         }
 

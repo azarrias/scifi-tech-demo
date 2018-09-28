@@ -23,7 +23,7 @@ public class Player : MonoBehaviour {
         // If mouse left click cast ray from the main camera through the center of the screen
         if (Input.GetMouseButtonDown(0))
         {
-            Ray rayOrigin = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0));
+            Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
             RaycastHit hitInfo;
 
             if (Physics.Raycast(rayOrigin, out hitInfo))

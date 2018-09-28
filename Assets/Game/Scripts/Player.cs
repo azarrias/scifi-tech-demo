@@ -20,6 +20,17 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        // If mouse left click cast ray from the main camera through the center of the screen
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray rayOrigin = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0));
+
+            if (Physics.Raycast(rayOrigin, Mathf.Infinity))
+            {
+                Debug.Log("RayCast Hit Something!");
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.visible = true;

@@ -289,6 +289,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1481494863829372, guid: 90ede6b057f813143905c5709cb9df0a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90ede6b057f813143905c5709cb9df0a, type: 2}
   m_IsPrefabParent: 0
@@ -979,6 +983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3.5
+  muzzleFlash: {fileID: 1993040535}
 --- !u!33 &1561922277
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1188,3 +1193,8 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!1 &1993040535 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1481494863829372, guid: 90ede6b057f813143905c5709cb9df0a,
+    type: 2}
+  m_PrefabInternal: {fileID: 403797412}

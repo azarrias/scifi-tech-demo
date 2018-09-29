@@ -8,6 +8,8 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float speed = 3.5f;
     private float gravity = 9.81f;
+    [SerializeField]
+    private GameObject muzzleFlash;
 
 	// Use this for initialization
 	void Start ()
@@ -20,9 +22,10 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        // If mouse left click cast ray from the main camera through the center of the screen
-        if (Input.GetMouseButtonDown(0))
+        // If holding mouse left click cast ray from the main camera through the center of the viewport
+        if (Input.GetMouseButton(0))
         {
+            muzzleFlash.SetActive(true);
             Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
             RaycastHit hitInfo;
 
@@ -30,6 +33,10 @@ public class Player : MonoBehaviour {
             {
                 Debug.Log("RayCast Hit " + hitInfo.transform.name + "!");
             }
+        }
+        else
+        {
+            muzzleFlash.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -15,36 +15,29 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private AudioSource weaponAudio;
 
+    [SerializeField]
+    private int currentAmmo;
+    private int maxAmmo = 50;
+
+    private bool isReloading = false;
+
 	// Use this for initialization
 	void Start ()
     {
         controller = GetComponent<CharacterController>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        currentAmmo = maxAmmo;
  	}
 	
 	// Update is called once per frame
 	void Update ()
     {
         // If holding mouse left click cast ray from the main camera through the center of the viewport
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && currentAmmo > 0)
         {
-            muzzleFlash.SetActive(true);
-
-            if (!weaponAudio.isPlaying)
-            {
-                weaponAudio.Play();
-            }
-
-            Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
-            RaycastHit hitInfo;
-
-            if (Physics.Raycast(rayOrigin, out hitInfo))
-            {
-                Debug.Log("RayCast Hit " + hitInfo.transform.name + "!");
-                GameObject hitMarker = Instantiate(hitMarkerPrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal)) as GameObject;
-                Destroy(hitMarker, 0.5f);
-            }
+            Shoot();
         }
         else
         {
@@ -58,8 +51,42 @@ public class Player : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
         }
 
+        if (Input.GetKeyDown(KeyCode.R) && !isReloading)
+        {
+            isReloading = true;
+            StartCoroutine(Reload());
+        }
+
         CalculateMovement();
 	}
+
+    void Shoot()
+    {
+        muzzleFlash.SetActive(true);
+        currentAmmo--;
+
+        if (!weaponAudio.isPlaying)
+        {
+            weaponAudio.Play();
+        }
+
+        Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
+        RaycastHit hitInfo;
+
+        if (Physics.Raycast(rayOrigin, out hitInfo))
+        {
+            Debug.Log("RayCast Hit " + hitInfo.transform.name + "!");
+            GameObject hitMarker = Instantiate(hitMarkerPrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal)) as GameObject;
+            Destroy(hitMarker, 0.5f);
+        }
+    }
+
+    IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(1.5f);
+        currentAmmo = maxAmmo;
+        isReloading = false;
+    }
 
     void CalculateMovement()
     {

@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
     private GameObject muzzleFlash;
     [SerializeField]
     private GameObject hitMarkerPrefab;
+    [SerializeField]
+    private AudioSource weaponAudio;
 
 	// Use this for initialization
 	void Start ()
@@ -28,6 +30,12 @@ public class Player : MonoBehaviour {
         if (Input.GetMouseButton(0))
         {
             muzzleFlash.SetActive(true);
+
+            if (!weaponAudio.isPlaying)
+            {
+                weaponAudio.Play();
+            }
+
             Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
             RaycastHit hitInfo;
 
@@ -41,6 +49,7 @@ public class Player : MonoBehaviour {
         else
         {
             muzzleFlash.SetActive(false);
+            weaponAudio.Stop();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

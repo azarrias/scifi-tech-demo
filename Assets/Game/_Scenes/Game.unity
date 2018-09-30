@@ -984,6 +984,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3.5
   muzzleFlash: {fileID: 1993040535}
+  hitMarkerPrefab: {fileID: 1278410308571632, guid: 0dca392d0ad60af418c1bace1abde0c6,
+    type: 2}
 --- !u!33 &1561922277
 MeshFilter:
   m_ObjectHideFlags: 0

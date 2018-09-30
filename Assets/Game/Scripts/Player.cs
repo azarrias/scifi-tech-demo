@@ -34,7 +34,8 @@ public class Player : MonoBehaviour {
             if (Physics.Raycast(rayOrigin, out hitInfo))
             {
                 Debug.Log("RayCast Hit " + hitInfo.transform.name + "!");
-                Instantiate(hitMarkerPrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                GameObject hitMarker = Instantiate(hitMarkerPrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal)) as GameObject;
+                Destroy(hitMarker, 0.5f);
             }
         }
         else

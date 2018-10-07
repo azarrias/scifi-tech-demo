@@ -6,6 +6,12 @@ public class Coin : MonoBehaviour
 {
     [SerializeField]
     private AudioClip coinPickUp;
+    private UIManager uiManager;
+
+    private void Start()
+    {
+        uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -18,6 +24,12 @@ public class Coin : MonoBehaviour
                 {
                     player.hasCoin = true;
                     AudioSource.PlayClipAtPoint(coinPickUp, transform.position);
+
+                    if (uiManager)
+                    {
+                        uiManager.CoinCollected();
+                    }
+
                     Destroy(gameObject);
                 }
             }

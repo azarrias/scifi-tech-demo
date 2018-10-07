@@ -25,6 +25,7 @@ public class SharkmanShop : MonoBehaviour
                     if (player.hasCoin)
                     {
                         player.hasCoin = false;
+                        player.EnableWeapon();
                         audioSource.Play();
 
                         if (uiManager)

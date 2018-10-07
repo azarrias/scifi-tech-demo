@@ -25,6 +25,9 @@ public class Player : MonoBehaviour {
 
     public bool hasCoin = false;
 
+    [SerializeField]
+    private GameObject weapon;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -107,5 +110,10 @@ public class Player : MonoBehaviour {
         velocity.y -= gravity;
 
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    public void EnableWeapon()
+    {
+        weapon.SetActive(true);
     }
 }

@@ -20,4 +20,9 @@ public class UIManager : MonoBehaviour {
     {
         coin.SetActive(true);
     }
+
+    public void CoinSpent()
+    {
+        coin.SetActive(false);
+    }
 }

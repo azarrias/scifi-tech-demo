@@ -23,6 +23,8 @@ public class Player : MonoBehaviour {
 
     private UIManager uiManager;
 
+    public bool hasCoin = false;
+
 	// Use this for initialization
 	void Start ()
     {

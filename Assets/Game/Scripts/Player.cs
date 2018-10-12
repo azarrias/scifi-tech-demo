@@ -88,6 +88,13 @@ public class Player : MonoBehaviour {
             Debug.Log("RayCast Hit " + hitInfo.transform.name + "!");
             GameObject hitMarker = Instantiate(hitMarkerPrefab, hitInfo.point, Quaternion.LookRotation(hitInfo.normal)) as GameObject;
             Destroy(hitMarker, 0.5f);
+
+            // If we hit any destructable
+            Destructable destructable = hitInfo.transform.GetComponent<Destructable>();
+            if (destructable)
+            {
+                destructable.DestroyObject();
+            }
         }
     }
 

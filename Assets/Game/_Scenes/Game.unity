@@ -125,7 +125,6 @@ GameObject:
   - component: {fileID: 104687904}
   - component: {fileID: 104687903}
   - component: {fileID: 104687902}
-  - component: {fileID: 104687901}
   - component: {fileID: 104687900}
   - component: {fileID: 104687905}
   - component: {fileID: 104687906}
@@ -149,18 +148,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 121.772705, y: 102.35167, z: 101.00458}
   m_Center: {x: 0.09588623, y: 51.056816, z: -0.0934124}
---- !u!114 &104687901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114322030424323178, guid: c4fa03dde2a5a52439028e5fba052e5c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 104687899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &104687902
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1737,17 +1724,17 @@ Prefab:
     - target: {fileID: 108352890995646114, guid: 93fb048d0136f084cb1f783ca99e5ea7,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.99215686
+      value: 0.98039216
       objectReference: {fileID: 0}
     - target: {fileID: 108352890995646114, guid: 93fb048d0136f084cb1f783ca99e5ea7,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.8156863
+      value: 0.54901963
       objectReference: {fileID: 0}
     - target: {fileID: 108352890995646114, guid: 93fb048d0136f084cb1f783ca99e5ea7,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.72156864
+      value: 0.39215687
       objectReference: {fileID: 0}
     - target: {fileID: 108352890995646114, guid: 93fb048d0136f084cb1f783ca99e5ea7,
         type: 2}

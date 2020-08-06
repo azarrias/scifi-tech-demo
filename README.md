@@ -13,4 +13,4 @@ Action   | PC (mouse and keyboard)
 Move     | Arrow keys              
 Interact | E
 Reload   | R
-Shoot    | Space bar               
+Shoot    | Left mouse button
